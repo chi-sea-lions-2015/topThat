@@ -10,6 +10,7 @@ class PublicArenasController < ApplicationController
     if @challengee_video
         @votes_for_challengee = @challengee_video.votes
     end
+    @public_arena.closed?
   end
 
   # def create

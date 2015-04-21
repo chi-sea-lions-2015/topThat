@@ -10,5 +10,10 @@ class PublicArena < ActiveRecord::Base
     vidz
   end
 
+  def closed?
+    if ((Time.now - self.created_at)/60) >= 2
+      self.status = "closed"
+    end
+  end
 
 end
