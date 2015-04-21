@@ -9,4 +9,6 @@ class PublicArena < ActiveRecord::Base
     Video.all.each { |vid| vidz << vid if  vid.public_arena_as_challenger != nil }
     vidz
   end
+
+
 end
