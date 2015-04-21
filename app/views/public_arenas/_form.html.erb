@@ -1,0 +1,9 @@
+
+<%=form_for ([@challenger_video, @public_arena]) do |f|%>
+    <%= f.label :challengee_video, "Title" %><br>
+    <%= f.text_field :challengee_video%><br><br>
+    <%= f.label :challengee_video_id, "Video" %><br>
+    <!-- challengee_video_id actually being passed as data_content -->
+    <%= f.text_field :challengee_video_id  %><br><br>
+    <%= f.submit "Submit"%>
+<% end %>
