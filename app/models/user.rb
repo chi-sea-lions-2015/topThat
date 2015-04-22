@@ -1,5 +1,8 @@
+
 class User < ActiveRecord::Base
   has_secure_password
+
+
 
   has_many :votes, foreign_key: :voter_id
   has_many :videos
@@ -12,6 +15,8 @@ class User < ActiveRecord::Base
   validates :username, :uniqueness => true
   validates :email, :uniqueness => true, :format => /.+@.+\..+/
   validates :username, :email, :presence => true
+
+  mount_uploader :avatar, AvatarUploader
 
 #write method to create friends
 
