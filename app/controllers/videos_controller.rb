@@ -11,8 +11,8 @@ class VideosController < ApplicationController
       @challenger_video = current_user.videos.new(video_params)
       if @challenger_video.save
         @public_arena = PublicArena.create(challenger_video: @challenger_video)
-        send_data @challenger_video, :type => @challenger_video.data_content, :disposition => 'inline'
-        # redirect_to video_public_arena_path(@challenger_video, @public_arena)
+        # send_data @challenger_video, :type => @challenger_video.data_content, :disposition => 'inline'
+        redirect_to video_public_arena_path(@challenger_video, @public_arena)
       else
         render "new"
       end
