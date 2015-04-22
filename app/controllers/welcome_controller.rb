@@ -10,16 +10,23 @@ class WelcomeController < ApplicationController
   end
 
 
-  def show 
-    puts params
-    if params[:status] == "closed"
-      public_arena = PublicArena.where(status: "closed")
-    elsif params[:status] == "in_battle"
-      public_arena = PublicArena.where(status: "in_battle")
-    else 
-      public_arena = PublicArena.where(status: "open")
-    end 
+#all you need to do is make sure that you get something tht ends in @challenger videos
+# @challenger videos will be a collection of videos that have a public arena who's status is either 'open' 'closed' or 'in_battle'
 
-    @challenger_videos = public_arena.all_challenger_videos
-  end 
+  def show
+    all_challenges = PublicArena.all_challenger_videos
+    @battle_videos = []
+    @closed_videos = []
+    @open_videos = []
+
+    all_challenges.map do |vid|
+      if params[:status] == "in_battle" && vid.public_arena_as_challenger.status == "in_battle"
+        @battle_videos << vid
+      elsif params[:status] == "open" && vid.public_arena_as_challenger.status == "open"
+        @open_videos << vid
+      else params[:status] == "closed" && vid.public_arena_as_challenger.status == "closed"
+        @closed_videos << vid
+      end
+    end
+  end
 end
