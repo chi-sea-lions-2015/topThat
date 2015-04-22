@@ -1,9 +1,13 @@
 
-<%=form_for ([@challenger_video, @public_arena]) do |f|%>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%=form_for ([@challenger_video, @public_arena]), :html => {:multipart => true} do |f|%>
     <%= f.label :challengee_video, "Title" %><br>
-    <%= f.text_field :challengee_video%><br><br>
-    <%= f.label :challengee_video_id, "Video" %><br>
+    <%= f.text_field :challengee_video, class: 'form-control'%><br><br>
+    <%= f.label :challengee_video_id, "Add Video" %><br>
     <!-- challengee_video_id actually being passed as data_content -->
-    <%= f.text_field :challengee_video_id  %><br><br>
-    <%= f.submit "Submit"%>
+    <%= f.file_field :challengee_video_id  %><br><br>
+    <%= f.submit "Submit", class: "btn btn-primary"%>
 <% end %>
+  </div>
+</div>
