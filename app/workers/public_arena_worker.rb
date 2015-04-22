@@ -3,7 +3,9 @@ class PublicArenaWorker
 
   def perform(arena_id)
     arena = PublicArena.find(arena_id)
-    arena.close
+    if arena.close?
+   #send a message
+    end
   end
 end
 

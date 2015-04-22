@@ -10,7 +10,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def open?
-    if self.challengee_video == nil
+    if self.challengee_video == nil && !self.close?
       true
     else
       false

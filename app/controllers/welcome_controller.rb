@@ -24,7 +24,7 @@ class WelcomeController < ApplicationController
         @open_videos << vid
       elsif params[:status] == "in_battle" && vid.public_arena_as_challenger.in_battle?
         @battle_videos << vid
-      elsif params[:status] == "closed" && vid.public_arena_as_challenger.closed?
+      elsif params[:status] == "closed" && vid.public_arena_as_challenger.close?
         @closed_videos << vid
       end
     end
