@@ -1,19 +1,19 @@
 
-<%if @open_videos %>
+<%if @open_videos != [] %>
 <ul>
   <% @open_videos.each do |video| %>
   <li><%= link_to video.title, video_public_arena_path(video, video.public_arena_as_challenger)%></li>
   <%end%>
 </ul>
 
-<% elsif @battle_videos %>
+<% elsif @battle_videos != [] %>
 <ul>
   <% @battle_videos.each do |video| %>
   <li><%= link_to video.title, video_public_arena_path(video, video.public_arena_as_challenger)%></li>
   <%end%>
 </ul>
 
-<% elsif @closed_videos %>
+<% elsif @closed_videos != [] %>
 <ul>
   <% @closed_videos.each do |video| %>
   <li><%= link_to video.title, video_public_arena_path(video, video.public_arena_as_challenger)%></li>
