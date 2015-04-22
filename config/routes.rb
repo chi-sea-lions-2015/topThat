@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get '/public_arenas/:status' => 'welcome#show'
+
 
 
     resources :users do

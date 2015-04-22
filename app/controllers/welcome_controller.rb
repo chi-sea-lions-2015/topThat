@@ -10,4 +10,16 @@ class WelcomeController < ApplicationController
   end
 
 
+  def show 
+    puts params
+    if params[:status] == "closed"
+      public_arena = PublicArena.where(status: "closed")
+    elsif params[:status] == "in_battle"
+      public_arena = PublicArena.where(status: "in_battle")
+    else 
+      public_arena = PublicArena.where(status: "open")
+    end 
+
+    @challenger_videos = public_arena.all_challenger_videos
+  end 
 end
