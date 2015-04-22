@@ -2,10 +2,13 @@
 
 
 <%if @user %>
-  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></h1>
+  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video), id: "challenge_link" %></h1>
 <%else%>
-  <h1><%= link_to 'challenge the world', login_path %></h1>
+  <h1><%= link_to 'challenge the world', login_path, id: "challenge_login_link" %></h1>
 <%end%>
+
+<div id = "upload_challenge">
+</div>
 
 <ul>
   <% @challenger_videos.each do |challenger_video| %>
