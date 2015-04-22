@@ -1,7 +1,6 @@
 class PublicArena < ActiveRecord::Base
   belongs_to :challenger_video, class_name: "Video"
   belongs_to :challengee_video, class_name: "Video"
-  enum status: [:open, :closed, :in_battle]
 
 
   def self.all_challenger_videos
@@ -10,10 +9,29 @@ class PublicArena < ActiveRecord::Base
     vidz
   end
 
-
-  def closed?
-    if ((Time.now - self.created_at)/60) >= 2
-      self.status = "closed"
+  def open?
+    if self.challengee_video == nil
+      true
+    else
+      false
     end
   end
+
+
+  def in_battle?
+    if self.challengee_video != nil && !self.close?
+      true
+    else
+      false
+    end
+  end
+
+  def close?
+    if ((Time.now - self.created_at)/60) >= 2
+      true
+    else
+      false
+    end
+  end
+
 end

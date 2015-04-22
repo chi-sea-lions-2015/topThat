@@ -36,6 +36,10 @@ gem 'carrierwave'
 gem "fog"
 gem "figaro"
 
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

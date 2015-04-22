@@ -10,7 +10,6 @@ class PublicArenasController < ApplicationController
     if @challengee_video
         @votes_for_challengee = @challengee_video.votes
     end
-    @public_arena.closed?
   end
 
   # def create
@@ -27,7 +26,7 @@ class PublicArenasController < ApplicationController
   def update
     @challengee_video = Video.create(user: current_user, title: params[:public_arena][:challengee_video], data_content: params[:public_arena][:challengee_video_id])
     @public_arena = PublicArena.find(params[:id])
-    @public_arena.update_attributes(challengee_video: @challengee_video, status: "in_battle")
+    @public_arena.update_attributes(challengee_video: @challengee_video)
     redirect_to video_public_arena_path(@public_arena.challenger_video, @public_arena)
   end
 

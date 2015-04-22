@@ -20,11 +20,11 @@ class WelcomeController < ApplicationController
     @open_videos = []
 
     all_challenges.map do |vid|
-      if params[:status] == "in_battle" && vid.public_arena_as_challenger.status == "in_battle"
-        @battle_videos << vid
-      elsif params[:status] == "open" && vid.public_arena_as_challenger.status == "open"
+      if params[:status] == "open" && vid.public_arena_as_challenger.open?
         @open_videos << vid
-      elsif params[:status] == "closed" && vid.public_arena_as_challenger.status == "closed"
+      elsif params[:status] == "in_battle" && vid.public_arena_as_challenger.in_battle?
+        @battle_videos << vid
+      elsif params[:status] == "closed" && vid.public_arena_as_challenger.closed?
         @closed_videos << vid
       end
     end

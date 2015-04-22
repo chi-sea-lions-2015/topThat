@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
   get    'signup'  => 'users#new'
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
       resources :public_arenas, only: [:new, :edit, :create, :show, :update]
   end
 
+  mount Sidekiq::Web, at: '/sidekiq'
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
