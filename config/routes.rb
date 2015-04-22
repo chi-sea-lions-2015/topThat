@@ -1,10 +1,16 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
-  get    'signup'         => 'users#new'
-  get    'login'          => 'sessions#new'
-  post   'login'          => 'sessions#create'
-  delete 'logout'         => 'sessions#destroy'
-  
+
+  get    'signup'  => 'users#new'
+  post   'users'   => 'users#create'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  get '/public_arenas/:status' => 'welcome#show'
+
 
 
     resources :users do
@@ -17,6 +23,7 @@ Rails.application.routes.draw do
       resources :public_arenas, only: [:new, :edit, :create, :show, :update]
   end
 
+  mount Sidekiq::Web, at: '/sidekiq'
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
