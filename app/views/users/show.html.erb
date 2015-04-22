@@ -1,15 +1,34 @@
 <% provide(:title, @user.username)%>
-<h1><%= @user.username %></h1>
+
+<% if current_user == @user %>
+<h2>Hi, <%= current_user.username%>!</h2>
+<hr>
+YOUR DETAILS
+<br>
+
+YOUR AVATAR
+<br>
+<img width="280" height="200" src="<%= @user.avatar %>"/>
+<br>
+About me:
+<%=current_user.about_me%>
+<br>
+<hr>
+YOUR VIDEOS
 
 As Challenger:
 
 <div id="challenger_videos">
-  <ul>
+  <ul class="list-group">
     <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challenger%>
-        <li><%=video.title %></li>
-        <li><%=video.data_content %></li>
-
+        <li class="list-group-item"><span class="badge"><%=video.votes.count%></span><%=video.title %>
+          <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play">
+            <video width="160" height="80">
+              <source src= <%=video.data_content %> type="video/mp4"/></span>
+              </video>
+            </button>
+          </li>
       <%end%>
     <%end%>
   </ul>
@@ -18,12 +37,19 @@ As Challenger:
 As Challengee:
 
 <div id="challengee_videos">
-  <ul>
+  <ul class="list-group">
     <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challengee%>
-        <li><%=video.title %></li>
-        <li><%=video.data_content %></li>
+        <li class="list-group-item"><span class="badge"><%=video.votes.count%></span><%=video.title %>
+          <div class=”jumbotron”>
+            <video width="160" height="80">
+              <source src= <%=video.data_content %> type="video/mp4"/>
+              </video>
+            </div>
+          </li>
       <%end%>
     <%end%>
   </ul>
 </div>
+    <%else%>
+        <%end%>
