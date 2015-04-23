@@ -4,15 +4,21 @@
 
 
 <%if @user %>
-  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></h1>
+  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video), id: "challenge_link" %></h1>
 <%else%>
-  <h1><%= link_to 'challenge the world', login_path %></h1>
+  <h1><%= link_to 'challenge the world', login_path, id: "challenge_login_link" %></h1>
 <%end%>
 
-<ul>
+
+
+
+
+<div id="upload_challenger_videos">
+<ul id = "challenger_list">
   <% @challenger_videos.each do |challenger_video| %>
   <li><%= link_to challenger_video.title, video_public_arena_path(challenger_video, challenger_video.public_arena_as_challenger)%></li>
   <%end%>
 </ul>
 </div>
-</div>
+
+

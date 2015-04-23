@@ -1,5 +1,6 @@
 <% provide(:title, @user.username)%>
 
+
 <% if current_user == @user %>
 <h2>Hi, <%= current_user.username%>!</h2>
 <hr>
@@ -25,9 +26,18 @@
 <hr>
 <h3>My videos</h3>
 
+
 <h4>As Challenger:</h4>
 
 <div id="challenger_videos">
+<<<<<<< HEAD
+  <ul>
+    <%@user.videos.each do |video|%>
+      <%if video.public_arena_as_challenger%>
+        <li><%=video.title %></li>
+        <li><%=video.data_content %></li>
+
+=======
   <ul class="list-group">
 
 
@@ -48,6 +58,7 @@
           </div>
         </div>
       </button>
+>>>>>>> 1617ae6ac2ea5e00e74a3b2031c8dcf5afceb210
       <%end%>
       <%end%>
     </li>
@@ -58,19 +69,12 @@
 
 <h4>As Challengee:</h4>
 <div id="challengee_videos">
-  <ul class="list-group">
+  <ul>
     <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challengee%>
-        <li class="list-group-item"><span class="badge"><%=video.votes.count%></span><%=video.title %>
-          <div class=”jumbotron”>
-            <video width="160" height="80">
-              <source src= <%=video.data_content %> type="video/mp4"/>
-              </video>
-            </div>
-          </li>
+        <li><%=video.title %></li>
+        <li><%=video.data_content %></li>
       <%end%>
     <%end%>
   </ul>
 </div>
-    <%else%>
-        <%end%>
