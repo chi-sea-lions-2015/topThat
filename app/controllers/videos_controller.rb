@@ -7,14 +7,12 @@ class VideosController < ApplicationController
   end
 
   def create
-
-    puts "HELLO"
     if current_user
       @challenger_video = current_user.videos.new(video_params)
       if @challenger_video.save
         @public_arena = PublicArena.create(challenger_video: @challenger_video)
 
-        PublicArenaWorker.perform_in(2.minutes, @public_arena.id)
+        # PublicArenaWorker.perform_in(2.minutes, @public_arena.id)
         # send_data @challenger_video, :type => @challenger_video.data_content, :disposition => 'inline'
         redirect_to root_path('/')
       else
