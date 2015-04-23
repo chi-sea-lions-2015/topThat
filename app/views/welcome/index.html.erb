@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <h1>top that</h1>
-
+    <h1><strong>TopThat</strong></h1>
 
 <%if @user %>
   <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></h1>
@@ -9,10 +8,19 @@
   <h1><%= link_to 'challenge the world', login_path %></h1>
 <%end%>
 
-<ul>
-  <% @challenger_videos.each do |challenger_video| %>
-  <li><%= link_to challenger_video.title, video_public_arena_path(challenger_video, challenger_video.public_arena_as_challenger)%></li>
+
+<ul class = "carousel">
+<% @challenger_videos.reverse.each do |video| %>
+<li><%=video.title%><br><video width="320" height="240" controls>
+      <source src= <%=video.data_content %> type="video/mp4"/>
+ Your browser does not support the video tag.
+</video><li>
   <%end%>
 </ul>
-</div>
+<a href="#" class = "carousel-nav prev"><</a>
+<a href="#" class = "carousel-nav next">></a>
+
+
+
+
 </div>
