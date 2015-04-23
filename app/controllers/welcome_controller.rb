@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index #research how to take thumbnail of video
+    puts current_user
    if current_user
      @user = current_user
    end

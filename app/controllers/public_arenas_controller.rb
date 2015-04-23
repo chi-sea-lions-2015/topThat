@@ -39,7 +39,7 @@ class PublicArenasController < ApplicationController
 private
 
    def public_arena_params
-    params.require(:public_arena).permit(:challenger_video, :challengee_video, :status)
+    params.require(:public_arena).permit(:challenger_video, :challengee_video)
    end
 
 end

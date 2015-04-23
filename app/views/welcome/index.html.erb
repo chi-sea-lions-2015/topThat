@@ -3,14 +3,6 @@
     <h1>top that</h1>
 
 
-<%if @user %>
-  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video), id: "challenge_link" %></h1>
-<%else%>
-  <h1><%= link_to 'challenge the world', login_path, id: "challenge_login_link" %></h1>
-<%end%>
-
-
-
 
 
 
@@ -21,9 +13,10 @@
   <%end%>
 </ul>
 <%if @user %>
-  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></button>
+  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video), class: "world-challenger" %></button>
 <%else%>
-  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', login_path %></button>
+  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge_the_world', login_path %></button>
 <%end%>
+</div>
 </div>
 

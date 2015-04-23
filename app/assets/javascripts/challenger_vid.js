@@ -17,27 +17,27 @@ $(document).ready(function (){
   })
   });
 
-  $(document).on("submit", ".new_video", function(e){
-    e.preventDefault();
-    console.log("click")
-    console.log(this.action);
-    console.log(this.method)
-    var $form = $(this);
+  // $(document).on("submit", ".new_video", function(e){
+  //   e.preventDefault();
+  //   console.log("click")
+  //   console.log(this.action);
+  //   console.log(this.method)
+  //   var $form = $(this);
 
 
-    $.ajax({
-      url: $form.attr('action'),
-      method: $form.attr('method'),
-      data: $form.serialize(),
-      success: function(response){
-        list = $(response).find("#challenger_list")
-        console.log(response)
+  //   $.ajax({
+  //     url: $form.attr('action'),
+  //     method: $form.attr('method'),
+  //     data: $form.serialize(),
+  //     success: function(response){
+  //       list = $(response).find("#challenger_list")
+  //       console.log(response)
 
-         $("#upload_challenger_videos").html(list)
-      }
-    })
+  //        $("#upload_challenger_videos").html(list)
+  //     }
+  //   })
 
-  });
+  // });
 
 
 
