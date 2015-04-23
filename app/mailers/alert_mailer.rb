@@ -37,6 +37,7 @@ class AlertMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Results of battle...') do |format|
       format.text
       format.html
+
     end
   end
 
