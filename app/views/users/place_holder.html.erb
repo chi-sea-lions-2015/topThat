@@ -1,1 +1,29 @@
-place_holder.html.erb
+<% provide(:title, @user.username)%>
+<h1><%= @user.username %></h1>
+
+As Challenger:
+
+<div id="challenger_videos">
+  <ul>
+    <%@user.videos.each do |video|%>
+      <%if video.public_arena_as_challenger%>
+        <li><%=video.title %></li>
+        <li><%=video.data_content %></li>
+
+      <%end%>
+    <%end%>
+  </ul>
+</div>
+
+As Challengee:
+
+<div id="challengee_videos">
+  <ul>
+    <%@user.videos.each do |video|%>
+      <%if video.public_arena_as_challengee%>
+        <li><%=video.title %></li>
+        <li><%=video.data_content %></li>
+      <%end%>
+    <%end%>
+  </ul>
+</div>

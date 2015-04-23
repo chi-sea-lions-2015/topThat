@@ -6,9 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @public_arena = PublicArena.find(params[:id])
-    @challenger_video = @public_arena.challenger_video
-    @challengee_video = @public_arena.challengee_video
   end
 
   def new
