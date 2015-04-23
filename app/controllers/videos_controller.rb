@@ -7,6 +7,8 @@ class VideosController < ApplicationController
   end
 
   def create
+    puts current_user 
+    puts params
     if current_user
       @challenger_video = current_user.videos.new(video_params)
       if @challenger_video.save

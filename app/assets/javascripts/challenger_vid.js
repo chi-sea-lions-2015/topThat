@@ -10,7 +10,7 @@ $(document).ready(function (){
       method: $link.attr('data-method'),
       success: function(response){
         vid_form = $(response).find("#new_video");
-        $("#upload_challenge").html(vid_form)
+        $("#uploaded_videos").html(vid_form)
 
       }
 
