@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%if @user %>
+  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></h1>
+<%else%>
+  <h1><%= link_to 'challenge the world', login_path %></h1>
+<%end%>
+
+
+<%= render 'status' %>
+</div>
+</div>

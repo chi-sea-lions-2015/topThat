@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# gem 'pg'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
@@ -31,7 +32,18 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 
 gem 'factory_girl_rails'
+gem "fog-aws"
 gem 'carrierwave'
+gem "fog"
+gem "figaro"
+gem 'mini_magick'
+
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'sidekiq_mailer'
+
+gem 'thin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

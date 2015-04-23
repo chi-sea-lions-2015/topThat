@@ -1,1 +1,11 @@
-edit.html.erb
+<div class="row">
+   <div class="col-md-6 col-md-offset-3">
+<%= form_for @user, :html => {:multipart => true} do |f|%> 
+About me: <%= f.text_field :about_me, class: 'form-control' %>
+Avatar:  <%= f.label :avatar, "Add Avatar"%><br>
+    <%= f.file_field :avatar %><br>
+<br>
+<%= f.submit "Submit" , class: "btn btn-primary" %>
+<%end%>
+  </div>
+</div>
