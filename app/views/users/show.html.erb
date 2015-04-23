@@ -32,7 +32,7 @@
       <button type="button" class="btn btn-default show-user">
         <span class="badge"><%=video.votes.count%>
         </span>
-        <%= link_to video.title, video_public_arena_path(@challenger_video,@public_arena)%>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
         <br>
         <div class="wrapper">
           <video width="160" height="80">
@@ -56,7 +56,7 @@
       <button type="button" class="btn btn-default show-user">
         <span class="badge"><%=video.votes.count%>
         </span>
-        <%= link_to video.title, video_public_arena_path(@challenger_video,@public_arena)%>
+        <%= link_to video.title, video_public_arena_path(video.public_arena_as_challengee.challenger_video,video.public_arena_as_challengee)%>
         <br>
         <div class="wrapper">
           <video width="160" height="80">
@@ -105,7 +105,7 @@
       <button type="button" class="btn btn-default show-user">
         <span class="badge"><%=video.votes.count%>
         </span>
-        <%= link_to video.title, video_public_arena_path(@challenger_video,@public_arena)%>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
         <br>
         <div class="wrapper">
           <video width="160" height="80">
@@ -129,7 +129,7 @@
       <button type="button" class="btn btn-default show-user">
         <span class="badge"><%=video.votes.count%>
         </span>
-        <%= link_to video.title, video_public_arena_path(@challenger_video,@public_arena)%>
+        <%= link_to video.title, video_public_arena_path(video.public_arena_as_challengee.challenger_video,video.public_arena_as_challengee)%>
         <br>
         <div class="wrapper">
           <video width="160" height="80">
