@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20150417040005) do
   create_table "public_arenas", force: :cascade do |t|
     t.integer  "challenger_video_id"
     t.integer  "challengee_video_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "status",              default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "user_connections", force: :cascade do |t|
