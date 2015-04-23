@@ -1,6 +1,7 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'status' %>
+      <%= render 'status' %>
+  <div class="col-md-6 col-md-offset-4">
+
 <%if @user %>
   <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></button>
 <%else%>
