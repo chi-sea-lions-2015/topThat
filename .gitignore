@@ -35,9 +35,6 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-<<<<<<< HEAD
 dump.rbd
-=======
- dump.rdb
 
->>>>>>> 3255e51ee6b5f1c25e5c306c8739e20b93ca5116
+
