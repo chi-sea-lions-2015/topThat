@@ -13,12 +13,17 @@
 
 
 
+
 <div id="upload_challenger_videos">
 <ul id = "challenger_list">
   <% @challenger_videos.each do |challenger_video| %>
   <li><%= link_to challenger_video.title, video_public_arena_path(challenger_video, challenger_video.public_arena_as_challenger)%></li>
   <%end%>
 </ul>
+<%if @user %>
+  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></button>
+<%else%>
+  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', login_path %></button>
+<%end%>
 </div>
-
 

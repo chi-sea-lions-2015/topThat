@@ -9,7 +9,6 @@
 <div class="user-info">
 <div class="row user-snippet" >
   <div class="col-md-6 ">
-
 <br>
 <img width="150" height="150" class="avatar-image" src= "<%= @user.avatar %>"/>
 <br>
@@ -26,28 +25,43 @@
 <hr>
 <h3>My videos</h3>
 
-
 <h4>As Challenger:</h4>
-
 <div id="challenger_videos">
-<<<<<<< HEAD
-  <ul>
-    <%@user.videos.each do |video|%>
-      <%if video.public_arena_as_challenger%>
-        <li><%=video.title %></li>
-        <li><%=video.data_content %></li>
 
-=======
+
+
   <ul class="list-group">
-
-
     <li class="list-group-item">
       <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challenger%>
       <button type="button" class="btn btn-default show-user">
         <span class="badge"><%=video.votes.count%>
         </span>
-        <%= link_to video.title, video_public_arena_path(@challenger_video,@public_arena)%>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+      <%end%>
+      <%end%>
+    </li>
+  </ul>
+</div>
+<h4>As Challengee:</h4>
+<div id="challengee_videos">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@user.videos.each do |video|%>
+      <%if video.public_arena_as_challengee%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(video.public_arena_as_challengee.challenger_video,video.public_arena_as_challengee)%>
         <br>
         <div class="wrapper">
           <video width="160" height="80">
@@ -58,23 +72,83 @@
           </div>
         </div>
       </button>
->>>>>>> 1617ae6ac2ea5e00e74a3b2031c8dcf5afceb210
       <%end%>
       <%end%>
     </li>
-
-
   </ul>
 </div>
 
+
+
+    <%else%>
+    <h2><%= current_user.username%></h2>
+<hr>
+<h3><%= current_user.username%>'s details</h3>
+<br>
+<div class="user-info">
+<div class="row user-snippet" >
+  <div class="col-md-6 ">
+<br>
+<img width="150" height="150" class="avatar-image" src= "<%= @user.avatar %>"/>
+<br>
+</div>
+  <div class="col-md-6 ">
+<h4>About <%= current_user.username%>:</h4>
+<%=current_user.about_me%>
+</div>
+</div>
+</div>
+<br>
+<hr>
+<h3><%= current_user.username%>'s videos</h3>
+<h4>As Challenger:</h4>
+<div id="challenger_videos">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@user.videos.each do |video|%>
+      <%if video.public_arena_as_challenger%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+      <%end%>
+      <%end%>
+    </li>
+  </ul>
+</div>
 <h4>As Challengee:</h4>
 <div id="challengee_videos">
-  <ul>
-    <%@user.videos.each do |video|%>
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challengee%>
-        <li><%=video.title %></li>
-        <li><%=video.data_content %></li>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(video.public_arena_as_challengee.challenger_video,video.public_arena_as_challengee)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+          <%end%>
       <%end%>
-    <%end%>
+    </li>
   </ul>
 </div>
+
+>>>>>>> 79033b08052ff77234d925ccf6f760e5afd1d567
