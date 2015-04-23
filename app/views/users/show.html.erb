@@ -20,17 +20,29 @@ As Challenger:
 
 <div id="challenger_videos">
   <ul class="list-group">
-    <%@user.videos.each do |video|%>
+    
+      
+    <li class="list-group-item">
+      <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challenger%>
-        <li class="list-group-item"><span class="badge"><%=video.votes.count%></span><%=video.title %>
-          <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play">
-            <video width="160" height="80">
-              <source src= <%=video.data_content %> type="video/mp4"/></span>
-              </video>
-            </button>
-          </li>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%=video.title %>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
       <%end%>
-    <%end%>
+      <%end%>
+    </li>
+      
+    
   </ul>
 </div>
 
