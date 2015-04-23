@@ -40,6 +40,7 @@ gem 'mini_magick'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'sidekiq_mailer'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
