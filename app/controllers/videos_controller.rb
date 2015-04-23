@@ -14,7 +14,7 @@ class VideosController < ApplicationController
 
         # PublicArenaWorker.perform_in(2.minutes, @public_arena.id)
         # send_data @challenger_video, :type => @challenger_video.data_content, :disposition => 'inline'
-        redirect_to root_path('/')
+        redirect_to video_public_arena_path(@challenger_video, @public_arena)
       else
         render "new"
       end
