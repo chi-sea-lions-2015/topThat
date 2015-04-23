@@ -1,5 +1,6 @@
 <% provide(:title, @user.username)%>
 
+
 <% if current_user == @user %>
 <h2>Hi, <%= current_user.username%>!</h2>
 <hr>
@@ -23,8 +24,12 @@
 <br>
 <hr>
 <h3>My videos</h3>
+
 <h4>As Challenger:</h4>
 <div id="challenger_videos">
+
+
+
   <ul class="list-group">
     <li class="list-group-item">
       <%@user.videos.each do |video|%>
@@ -122,6 +127,7 @@
 </div>
 <h4>As Challengee:</h4>
 <div id="challengee_videos">
+
   <ul class="list-group">
     <li class="list-group-item">
       <%@user.videos.each do |video|%>
@@ -139,9 +145,10 @@
           </div>
         </div>
       </button>
-      <%end%>
+          <%end%>
       <%end%>
     </li>
   </ul>
 </div>
-        <%end%>
+
+>>>>>>> 79033b08052ff77234d925ccf6f760e5afd1d567
