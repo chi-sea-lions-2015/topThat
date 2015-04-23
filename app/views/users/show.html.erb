@@ -1,22 +1,73 @@
 <% provide(:title, @user.username)%>
-<h1><%= @user.username %></h1>
 
-As Challenger:
+
+<% if current_user == @user %>
+<h2>Hi, <%= current_user.username%>!</h2>
+<hr>
+<h3>My details</h3>
+<br>
+<div class="user-info">
+<div class="row user-snippet" >
+  <div class="col-md-6 ">
+
+<br>
+<img width="150" height="150" class="avatar-image" src= "<%= @user.avatar %>"/>
+<br>
+</div>
+  <div class="col-md-6 ">
+<h4>About me:</h4>
+<%=current_user.about_me%>
+</div>
+</div>
+</div>
+<br>
+<a href="/users/<%=current_user.id%>/edit", class = "edit-link"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+<br>
+<hr>
+<h3>My videos</h3>
+
+
+<h4>As Challenger:</h4>
 
 <div id="challenger_videos">
+<<<<<<< HEAD
   <ul>
     <%@user.videos.each do |video|%>
       <%if video.public_arena_as_challenger%>
         <li><%=video.title %></li>
         <li><%=video.data_content %></li>
 
+=======
+  <ul class="list-group">
+
+
+    <li class="list-group-item">
+      <%@user.videos.each do |video|%>
+      <%if video.public_arena_as_challenger%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(@challenger_video,@public_arena)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+>>>>>>> 1617ae6ac2ea5e00e74a3b2031c8dcf5afceb210
       <%end%>
-    <%end%>
+      <%end%>
+    </li>
+
+
   </ul>
 </div>
 
-As Challengee:
-
+<h4>As Challengee:</h4>
 <div id="challengee_videos">
   <ul>
     <%@user.videos.each do |video|%>

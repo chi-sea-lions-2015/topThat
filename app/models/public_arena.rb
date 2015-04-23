@@ -34,4 +34,34 @@ class PublicArena < ActiveRecord::Base
     end
   end
 
+  def challenger_won?
+    if self.challenger_video && self.challengee_video && self.close?
+      if self.challenger_video.votes.count > self.challengee_video.votes.count
+        true
+      else
+        false
+      end
+    end
+  end
+
+  def challengee_won?
+    if self.challenger_video && self.challengee_video && self.close?
+      if self.challengee_video.votes.count > self.challenger_video.votes.count
+        true
+      else
+        false
+      end
+    end
+  end
+
+  def tie?
+    if self.challenger_video && self.challengee_video &&self.close?
+      if self.challengee_video.votes.count == self.challenger_video.votes.count
+        true
+      else
+        false
+      end
+    end
+  end
+
 end
