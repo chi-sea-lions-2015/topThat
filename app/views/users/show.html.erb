@@ -5,13 +5,19 @@
 <hr>
 YOUR DETAILS
 <br>
-
+<div class="row">
+  <div class="col-md-6 ">
 YOUR AVATAR
 <br>
-<img width="280" height="200" src="<%= @user.avatar %>"/>
+<img width="240" height="160" src="<%= @user.avatar %>"/>
 <br>
+</div>
+  <div class="col-md-6 ">
 About me:
 <%=current_user.about_me%>
+</div>
+</div>
+
 <br>
 <hr>
 YOUR VIDEOS
