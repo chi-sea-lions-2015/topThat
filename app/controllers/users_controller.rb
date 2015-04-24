@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         # Tell the UserMailer to send a welcome email after save
         AlertMailer.welcome_email(@user).deliver_now
 
-        format.html { redirect_to(@user)}
+        format.html { redirect_to(root_url)}
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: 'new' }

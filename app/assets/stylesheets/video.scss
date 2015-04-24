@@ -11,7 +11,7 @@ video {
   .glyphicon-play {
     position: absolute;
     border-radius: 26px;
-    color: magenta;
+    color: #ff5454;
     font-size: 1.25em;
     border: white;
     top: 25px;
@@ -30,6 +30,8 @@ video {
   }
 }
 
-
+.list-group-item {
+  background-color: black;
+}
 
 
