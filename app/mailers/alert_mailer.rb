@@ -3,7 +3,7 @@ class AlertMailer < ApplicationMailer
 
   def welcome_email(user)
     @user = user
-    @url  = "https://mysterious-lowlands-9076.herokuapp.com/login"
+    @url  = "https://top-that.herokuapp.com/login"
     mail(to: @user.email, subject: 'Welcome to TopThat!')
   end
 
@@ -11,7 +11,7 @@ class AlertMailer < ApplicationMailer
     @user = user
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
-    @url  = "https://mysterious-lowlands-9076.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
+    @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
     mail(to: @user.email, subject: 'Results of battle...') do |format|
       format.text
       format.html
@@ -22,7 +22,7 @@ class AlertMailer < ApplicationMailer
     @user = user
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
-    @url  = "https://mysterious-lowlands-9076.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
+    @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
     mail(to: @user.email, subject: 'Results of battle...') do |format|
       format.text
       format.html
@@ -33,7 +33,7 @@ class AlertMailer < ApplicationMailer
     @user = user
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
-    @url  = "https://mysterious-lowlands-9076.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
+    @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
     mail(to: @user.email, subject: 'Results of battle...') do |format|
       format.text
       format.html
@@ -45,7 +45,7 @@ class AlertMailer < ApplicationMailer
     @user = user
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
-    @url  = "https://mysterious-lowlands-9076.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
+    @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
     mail(to: @user.email, subject: 'No one accepted challenge...') do |format|
       format.text
       format.html
