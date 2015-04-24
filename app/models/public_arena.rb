@@ -27,7 +27,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def close?
-    if ((Time.now - self.created_at)/60) >= 2
+    if ((Time.now - self.created_at)/60) >= 90
       true
     else
       false
