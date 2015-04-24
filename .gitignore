@@ -36,5 +36,5 @@ bower.json
 .powenv
 
 dump.rbd
-
+.DS_Store
 
