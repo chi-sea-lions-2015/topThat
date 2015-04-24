@@ -41,7 +41,7 @@ gem 'mini_magick'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
-gem 'sidekiq_mailer'
+# gem 'sidekiq_mailer'
 
 gem 'thin'
 
