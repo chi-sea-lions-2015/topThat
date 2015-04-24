@@ -14,10 +14,12 @@ class WelcomeController < ApplicationController
 # @challenger videos will be a collection of videos that have a public arena who's status is either 'open' 'closed' or 'in_battle'
 
   def show
+    @user = current_user
     all_challenges = PublicArena.all_challenger_videos
     @battle_videos = []
     @closed_videos = []
     @open_videos = []
+    @video = Video.new
 
     all_challenges.map do |vid|
       if params[:status] == "open" && vid.public_arena_as_challenger.open?
