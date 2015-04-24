@@ -24,7 +24,7 @@ video {
 
   font-size: 1.5em;
   text-align: left;
-  
+
   .badge {
     text-align: right;
   }
@@ -35,3 +35,6 @@ video {
 }
 
 
+video::-webkit-media-controls {
+  display:none !important;
+}
