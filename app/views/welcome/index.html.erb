@@ -1,14 +1,37 @@
-<h1>top that</h1>
+<div class="row">
+<!--   <div class="col-md-6 col-md-offset-3"> -->
+    <h1>Think you can top these?</h1>
+<hr>
 
 
+<div id="challenger_videos">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@challenger_videos.each do |challenger_video|%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=challenger_video.votes.count%>
+        </span>
+        <%= link_to challenger_video.title, video_public_arena_path(challenger_video,challenger_video.public_arena_as_challenger)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=challenger_video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+      <%end%>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-6 col-md-offset-4">
 <%if @user %>
-  <h1><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></h1>
+  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></button>
 <%else%>
-  <h1><%= link_to 'challenge the world', login_path %></h1>
+  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', login_path %></button>
 <%end%>
+</div>
+</div>
 
-<ul>
-  <% @challenger_videos.each do |challenger_video| %>
-  <li><%= link_to challenger_video.title, video_public_arena_path(challenger_video, challenger_video.public_arena_as_challenger)%></li>
-  <%end%>
-</ul>

@@ -1,24 +1,77 @@
 
-<%if @open_videos != [] %>
-<ul>
-  <% @open_videos.each do |video| %>
-  <li><%= link_to video.title, video_public_arena_path(video, video.public_arena_as_challenger)%></li>
-  <%end%>
-</ul>
+<div id="challenger_videos">
+  <%if @open_videos != [] %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@open_videos.reverse.each do |video|%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+      <%end%>
+    </li>
+  </ul>
 
 <% elsif @battle_videos != [] %>
-<ul>
-  <% @battle_videos.each do |video| %>
-  <li><%= link_to video.title, video_public_arena_path(video, video.public_arena_as_challenger)%></li>
-  <%end%>
-</ul>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@battle_videos.reverse.each do |video|%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+      <%end%>
+    </li>
+  </ul>
 
 <% elsif @closed_videos != [] %>
-<ul>
-  <% @closed_videos.each do |video| %>
-  <li><%= link_to video.title, video_public_arena_path(video, video.public_arena_as_challenger)%></li>
-  <%end%>
-</ul>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%@closed_videos.reverse.each do |video|%>
+      <button type="button" class="btn btn-default show-user">
+        <span class="badge"><%=video.votes.count%>
+        </span>
+        <%= link_to video.title, video_public_arena_path(video,video.public_arena_as_challenger)%>
+        <br>
+        <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%=video.data_content %> type="video/mp4"/>
+          </video>
+          <div class="glyphicon glyphicon-play">
+          </div>
+        </div>
+      </button>
+      <%end%>
+    </li>
+  </ul>
 <%end%>
+
+</div>
+
+
+
+
+
+
+
+
 
 

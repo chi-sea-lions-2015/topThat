@@ -1,0 +1,32 @@
+.navbar-brand img {
+  max-height: 50px;
+  max-width: 50px;
+  overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin-left: 0;
+
+}
+
+.btn-primary {
+  background-color: #004bf2;
+}
+
+.navbar {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  background-color: #3F4141;
+}
