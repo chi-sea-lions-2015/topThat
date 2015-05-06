@@ -19,5 +19,14 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
 #write method to create friends
-
+  def self.voted?(user_id, video_id)
+    video = Video.find(video_id)
+    user = User.find(user_id)
+    vote = video.votes.find_by(voter_id: user_id)
+      if vote  != nil 
+        true 
+      else
+        false 
+      end 
+  end 
 end

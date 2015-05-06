@@ -13,7 +13,7 @@ class VotesController < ApplicationController
       @challenger_video = @public_arena.challenger_video
       redirect_to video_public_arena_path(@challenger_video, @public_arena)
     else
-      redirect_to login_path
+      
     end
   end
 end
