@@ -24,7 +24,8 @@ class UsersController < ApplicationController
         format.html { redirect_to(welcome_path)}
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: 'new' }
+        flash[:error] = "oops. Turns out you don't know how to signup for anything."
+        format.html { redirect_to(root_url)}
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
