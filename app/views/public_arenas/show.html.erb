@@ -19,7 +19,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
 
 <% if @public_arena.in_battle? %>
     <div id= 'challenger_votes'><%= @challenger_video.votes.count%></div>
-    <%= link_to image_tag("arrow_up.gif", width: "50"), video_votes_path(@challenger_video, @vote), id: "challenger_vote_link",  method: :post%><br>
+    <%= link_to image_tag("arrow_up.gif", width: "50"), video_votes_path(@challenger_video, @vote), id: "challenger_vote_link",  method: :post%><br><br>
 
     <%= link_to image_tag("arrow_down.gif", width: "50"), video_votes_path(@challengee_video, @vote), id: "challengee_vote_link", method: :post %><br>
     <div id= 'challengee_votes'><%= @challengee_video.votes.count%></div>
