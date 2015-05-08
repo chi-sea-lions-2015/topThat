@@ -22,11 +22,26 @@ class User < ActiveRecord::Base
   def self.voted?(user, video)
     @video = video
     @user = user
-    @vote = @video.votes.find_by(voter_id: @user.id)
-    if @vote != nil
-      true
+    if @video.public_arena_as_challenger
+      @public_arena = @video.public_arena_as_challenger
+      @challengee_video = @public_arena.challengee_video
+      @vote_one = @video.votes.find_by(voter_id: @user.id)
+      @vote_two = @challengee_video.votes.find_by(voter_id: @user.id)
+      if @vote_one != nil || @vote_two != nil
+        true
+      else
+        false
+      end
     else
-      false
+      @public_arena = @video.public_arena_as_challengee
+      @challenger_video = @public_arena.challenger_video
+      @vote_one = @video.votes.find_by(voter_id: @user.id)
+      @vote_two = @challenger_video.votes.find_by(voter_id: @user.id)
+      if @vote_one != nil || @vote_two != nil
+        true
+      else
+        false
+      end
     end
   end
 
