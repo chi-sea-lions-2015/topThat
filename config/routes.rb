@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   get '/public_arenas/:status' => 'welcome#show'
+  get '/welcome' => 'welcome#index'
 
 
 
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web, at: '/sidekiq'
 
-  root 'welcome#index'
+  root 'sessions#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -21,10 +21,11 @@ class UsersController < ApplicationController
         # Tell the UserMailer to send a welcome email after save
         AlertMailer.welcome_email(@user).deliver_now
 
-        format.html { redirect_to(root_url)}
+        format.html { redirect_to(welcome_path)}
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: 'new' }
+        flash[:error] = "oops. Turns out you don't know how to signup for anything."
+        format.html { redirect_to(root_url)}
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
