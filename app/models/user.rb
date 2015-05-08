@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
     else
       @challenger_video = @public_arena_as_challengee.challenger_video
       @challenger_vote = @challenger_video.votes.find_by(voter_id: user_id)
-      @challengee_vote = video.votes.find_by(voter_id: user_id)
+      @challengee_vote = @video.votes.find_by(voter_id: user_id)
       if @challenger_vote != nil && @challengee_vote !=nil
         true
       else
