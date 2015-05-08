@@ -27,6 +27,8 @@ class PublicArenasController < ApplicationController
     @challengee_video = Video.create(user: current_user, title: params[:public_arena][:challengee_video], data_content: params[:public_arena][:challengee_video_id])
     @public_arena = PublicArena.find(params[:id])
     @public_arena.update_attributes(challengee_video: @challengee_video)
+    AlertMailer.challenge_accepted_email(@public_arena).deliver_now
+    AlertMailer.challenge_confirmation_email(@public_arena).deliver_now
     redirect_to video_public_arena_path(@public_arena.challenger_video, @public_arena)
   end
 
