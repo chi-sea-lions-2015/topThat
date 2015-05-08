@@ -1,10 +1,6 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 Share this battle! <div class="addthis_sharing_toolbox"></div>
 
- <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
-
 <%if @public_arena.close? && @challengee_video %>
   <h5>Voting is now closed</h5>
 <%elsif @public_arena.close? && @challengee_video == nil%>
