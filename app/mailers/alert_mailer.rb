@@ -12,7 +12,7 @@ class AlertMailer < ApplicationMailer
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
     @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
-    mail(to: @user.email, subject: 'Results of battle...') do |format|
+    mail(to: @user.email, subject: 'Results of TopThat battle...') do |format|
       format.text
       format.html
     end
@@ -23,7 +23,7 @@ class AlertMailer < ApplicationMailer
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
     @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
-    mail(to: @user.email, subject: 'Results of battle...') do |format|
+    mail(to: @user.email, subject: 'Results of TopThat battle...') do |format|
       format.text
       format.html
     end
@@ -34,7 +34,7 @@ class AlertMailer < ApplicationMailer
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
     @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
-    mail(to: @user.email, subject: 'Results of battle...') do |format|
+    mail(to: @user.email, subject: 'Results of TopThat battle...') do |format|
       format.text
       format.html
 
@@ -46,7 +46,31 @@ class AlertMailer < ApplicationMailer
     @video_id = arena.challenger_video.id
     @arena_id = arena.id
     @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
-    mail(to: @user.email, subject: 'No one accepted challenge...') do |format|
+    mail(to: @user.email, subject: 'No one accepted your TopThat challenge') do |format|
+      format.text
+      format.html
+    end
+  end
+
+  def challenge_accepted_email(arena)
+    @video_id = arena.challenger_video.id
+    @arena_id = arena.id
+    @user = arena.challenger_video.user
+
+    @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
+    mail(to: @user.email, subject: 'Your TopThat challenge has been accepted!') do |format|
+      format.text
+      format.html
+    end
+  end
+
+  def challenge_confirmation_email(arena)
+    @video_id = arena.challenger_video.id
+    @arena_id = arena.id
+    @user = arena.challengee_video.user
+
+    @url  = "https://top-that.herokuapp.com/videos/#{@video_id}/public_arenas/#{@arena_id}"
+    mail(to: @user.email, subject: 'Your TopThat video is now in battle!') do |format|
       format.text
       format.html
     end
