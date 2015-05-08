@@ -2,10 +2,11 @@ class VotesController < ApplicationController
   def create
     if current_user
       @video = Video.find(params[:video_id])
-      if User.voted?(current_user.id, @video.id) == false && @video.public_arena_as_challenger
+
+      if @video.public_arena_as_challenger
         @vote = @video.votes.create(voter: current_user, video_id: params[:video_id])
         @public_arena = @video.public_arena_as_challenger
-      elsif User.voted?(current_user.id, @video.id) == false
+      else
         @vote = @video.votes.create(voter: current_user, video_id: params[:video_id])
         @public_arena = @video.public_arena_as_challengee
       end
