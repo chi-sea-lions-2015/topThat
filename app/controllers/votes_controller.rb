@@ -16,14 +16,12 @@ class VotesController < ApplicationController
         if @video.public_arena_as_challenger
           @public_arena = @video.public_arena_as_challenger
           puts "Hello!"
-          flash[:notice] = "You already voted!"
-          redirect_to video_public_arena_path(@video, @public_arena)
+          redirect_to video_public_arena_path(@video, @public_arena), notice: "You already voted!"
         else
           @public_arena = @video.public_arena_as_challengee
           @challenger_video = @public_arena.challenger_video
           puts "Hi!"
-          flash[:notice] = "You already voted!"
-          redirect_to video_public_arena_path(@challenger_video, @public_arena)
+          redirect_to video_public_arena_path(@challenger_video, @public_arena), notice: "You already voted!"
         end
       end
     else
