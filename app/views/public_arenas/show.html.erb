@@ -1,6 +1,7 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 Share this battle! <div class="addthis_sharing_toolbox"></div>
 
+
 <%if @public_arena.close? && @challengee_video %>
   <h5>Voting is now closed</h5>
 <%elsif @public_arena.close? && @challengee_video == nil%>
@@ -46,3 +47,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
 <% if @public_arena.open? %>
     <%= link_to 'Step into the Arena', edit_video_public_arena_path(@challenger_video,@public_arena) %>
 <%end%>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
