@@ -5,6 +5,7 @@ class PublicArenasController < ApplicationController
     @public_arena = PublicArena.find(params[:id])
     @challenger_video = @public_arena.challenger_video
     @challengee_video = @public_arena.challengee_video
+    @challengee_user  = @challengee_video.user
     @vote = Vote.new
     @votes_for_challenger = @challenger_video.votes
     if @challengee_video
