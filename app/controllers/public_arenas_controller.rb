@@ -19,11 +19,15 @@ class PublicArenasController < ApplicationController
   # end
 
   def edit
-    @challenger_video = Video.find(params[:video_id])
-    @public_arena = PublicArena.find(params[:id])
-    @challengee_video =  Video.new
-    if current_user == @challenger_video.user
-      redirect_to video_public_arena_path(@challenger_video, @public_arena)
+    if current_user
+      @challenger_video = Video.find(params[:video_id])
+      @public_arena = PublicArena.find(params[:id])
+      @challengee_video =  Video.new
+      if current_user == @challenger_video.user
+        redirect_to video_public_arena_path(@challenger_video, @public_arena), alert: "You can't battle yourself!"
+      end
+    else
+      redirect_to login_path
     end
   end
 
