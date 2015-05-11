@@ -2,7 +2,7 @@ class PublicArenaWorker
   include Sidekiq::Worker
 
   def perform(arena_id)
-    # Rails.logger.warn Rails.env
+    Rails.logger.warn Rails.env
     arena = PublicArena.find(arena_id)
     if arena.challenger_won?
       user = arena.challenger_video.user
