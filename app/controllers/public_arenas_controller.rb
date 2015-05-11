@@ -9,6 +9,7 @@ class PublicArenasController < ApplicationController
     @votes_for_challenger = @challenger_video.votes
     if @challengee_video
         @votes_for_challengee = @challengee_video.votes
+        @challengee_user  = @challengee_video.user
     end
   end
 

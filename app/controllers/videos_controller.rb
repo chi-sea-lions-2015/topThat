@@ -9,7 +9,7 @@ class VideosController < ApplicationController
   def create
     if current_user
       @challenger_video = current_user.videos.new(video_params)
-      if @challenger_video.save
+      if @challenger_video.save!
         @public_arena = PublicArena.create(challenger_video: @challenger_video)
 
         PublicArenaWorker.perform_in(90.minutes, @public_arena.id)

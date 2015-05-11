@@ -9,6 +9,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
 <%end%>
 
 
+
 <%= @challenger_video.title %><br>
 
 <div class=”jumbotron”>
@@ -17,6 +18,8 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
  Your browser does not support the video tag.
 </video>
 </div>
+
+<%= image_tag(@user.avatar, width: "50") %> <%= link_to @user.username, user_path(@user)%><br>
 
 <% if @public_arena.in_battle? %>
     <div id= 'challenger_votes'><%= @challenger_video.votes.count%></div>
@@ -34,6 +37,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
 <%end%>
 
 <%if @challengee_video%>
+
   <%= @challengee_video.title %><br>
 
 <div class=”jumbotron”>
@@ -42,6 +46,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
  Your browser does not support the video tag.
 </video>
 </div>
+<%= image_tag(@challengee_user.avatar, width: "50")%> <%= link_to @challengee_user.username, user_path(@user)%>
 <%end%>
 
 <% if @public_arena.open? %>
