@@ -1,7 +1,7 @@
 class PublicArenasController < ApplicationController
 
   def show
-    @user = current_user
+    # @user = current_user
     @public_arena = PublicArena.find(params[:id])
     @challenger_video = @public_arena.challenger_video
     @challenger = @challenger_video.user

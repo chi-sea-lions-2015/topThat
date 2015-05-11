@@ -46,7 +46,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
  Your browser does not support the video tag.
 </video>
 </div>
-<%= image_tag(@challengee_user.avatar, width: "50")%> <%= link_to @challengee_user.username, user_path(@user)%>
+<%= image_tag(@challengee_user.avatar, width: "50")%> <%= link_to @challengee_user.username, user_path(@challengee_user)%>
 <%end%>
 
 <% if @public_arena.open? %>
