@@ -1,9 +1,10 @@
 class PublicArenasController < ApplicationController
 
   def show
-    @user = current_user
+    # @user = current_user
     @public_arena = PublicArena.find(params[:id])
     @challenger_video = @public_arena.challenger_video
+    @challenger = @challenger_video.user
     @challengee_video = @public_arena.challengee_video
     @vote = Vote.new
     @votes_for_challenger = @challenger_video.votes
@@ -21,6 +22,9 @@ class PublicArenasController < ApplicationController
     @challenger_video = Video.find(params[:video_id])
     @public_arena = PublicArena.find(params[:id])
     @challengee_video =  Video.new
+    if current_user == @challenger_video.user
+      redirect_to video_public_arena_path(@challenger_video, @public_arena)
+    end
   end
 
 

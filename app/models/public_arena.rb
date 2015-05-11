@@ -27,7 +27,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def close?
-    if ((Time.now - self.created_at)/60) >= 90
+    if ((Time.now - self.created_at)/60) >= 15
       true
     else
       false
@@ -37,6 +37,7 @@ class PublicArena < ActiveRecord::Base
   def challenger_won?
     if self.challenger_video && self.challengee_video && self.close?
       if self.challenger_video.votes.count > self.challengee_video.votes.count
+        self.challenger_video.update_attributes(winner: true)
         true
       else
         false
@@ -47,6 +48,7 @@ class PublicArena < ActiveRecord::Base
   def challengee_won?
     if self.challenger_video && self.challengee_video && self.close?
       if self.challengee_video.votes.count > self.challenger_video.votes.count
+        self.challengee_video.update_attributes(winner: true)
         true
       else
         false
