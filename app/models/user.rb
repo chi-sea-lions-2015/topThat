@@ -45,4 +45,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def stats 
+    video_count = self.videos.count 
+    win_count  = self.videos.where(winner: true).count
+    (win_count.to_f / video_count.to_f) * 100.0
+  end 
+
+
+
 end
