@@ -10,7 +10,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def open?
-    if self.challengee_video == nil && !self.close?
+    if self.challengee_video == nil
       true
     else
       false
@@ -19,7 +19,7 @@ class PublicArena < ActiveRecord::Base
 
 
   def in_battle?
-    if self.challengee_video != nil && !self.close?
+    if self.challengee_video != nil && ((Time.now - self.created_at)/60) < 3
       true
     else
       false
@@ -27,7 +27,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def close?
-    if ((Time.now - self.created_at)/60) >= 15
+    if self.challengee_video != nil && ((Time.now - self.created_at)/60) >= 3
       true
     else
       false
@@ -57,7 +57,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def tie?
-    if self.challenger_video && self.challengee_video &&self.close?
+    if self.challenger_video && self.challengee_video && self.close?
       if self.challengee_video.votes.count == self.challenger_video.votes.count
         true
       else
