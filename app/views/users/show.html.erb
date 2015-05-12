@@ -89,9 +89,9 @@
 
 
     <%else%>
-    <h2><%= current_user.username%></h2>
+    <h2><%= @user.username%></h2>
 <hr>
-<h3><%= current_user.username%>'s details</h3>
+<h3><%= @user.username%>'s details</h3>
 <br>
 <div class="user-info">
 <div class="row user-snippet" >
@@ -101,14 +101,23 @@
 <br>
 </div>
   <div class="col-md-6 ">
-<h4>About <%= current_user.username%>:</h4>
-<%=current_user.about_me%>
+<h4>About <%= @user.username%>:</h4>
+<%=@user.about_me%><br>
+
+<div>
+<h4> Stats: <h4>
+  <p>wins: <%=@user.videos.where(winner: true).count %></p>
+  <p>losses: <%= @user.videos.count - @user.videos.where(winner: true).count%></p>
+  <p>average: <%= @user.stats %>% </p>
+
+</div>
+
 </div>
 </div>
 </div>
 <br>
 <hr>
-<h3><%= current_user.username%>'s videos</h3>
+<h3><%= @user.username%>'s videos</h3>
 <h4>As Challenger:</h4>
 <div id="challenger_videos">
   <ul class="list-group">
