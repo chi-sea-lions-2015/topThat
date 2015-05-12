@@ -19,7 +19,7 @@ class PublicArena < ActiveRecord::Base
 
 
   def in_battle?
-    if self.challengee_video != nil && ((Time.now - self.created_at)/60) < 3
+    if self.challengee_video != nil && ((Time.now - self.created_at)/60) < 15
       true
     else
       false
@@ -27,7 +27,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def close?
-    if self.challengee_video != nil && ((Time.now - self.created_at)/60) >= 3
+    if self.challengee_video != nil && ((Time.now - self.created_at)/60) >= 15
       true
     else
       false

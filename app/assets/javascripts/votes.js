@@ -12,7 +12,7 @@ $(document).ready(function(){
         success: function(response){
            var vote = $(response).find("#challenger_votes");
            // may need to look into how 'return works' color might change and change right back
-            $(".up_arrow").attr("src", "arrow_up_colored.gif") 
+            $(".up_arrow").attr("src", "/assets/logo.jpg")
             $("#challenger_votes").html(vote[0].innerText)
         }
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
         data: $(this).serialize(),
         success: function(response){
            var vote = $(response).find("#challengee_votes");
-           $(".down_arrow").attr("src", "arrow_down_colored.gif")
+           $(".down_arrow").attr("src", "/assets/logo.jpg")
            $("#challengee_votes").html(vote[0].innerText)
         }
 
