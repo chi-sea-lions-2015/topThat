@@ -21,6 +21,7 @@
 <h4> Stats: <h4>
   <p>wins: <%=current_user.videos.where(winner: true).count %></p>
   <p>losses: <%= current_user.videos.count - current_user.videos.where(winner: true).count%></p>
+  <p>ties: <%= current_user.ties%></p>
   <p>average: <%= current_user.stats %>% </p>
 
 </div>

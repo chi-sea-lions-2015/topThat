@@ -45,11 +45,23 @@ class User < ActiveRecord::Base
     end
   end
 
-  def stats 
-    video_count = self.videos.count 
+  def stats
+    video_count = self.videos.count
     win_count  = self.videos.where(winner: true).count
     (win_count.to_f / video_count.to_f) * 100.0
-  end 
+  end
+
+  def ties
+    ties = 0
+    self.videos.each do |video|
+      if video.public_arena_as_challenger != nil && video.public_arena_as_challenger.close?
+        ties += 1
+      elsif video.public_arena_as_challengee != nil && video.public_arena_as_challengee.close?
+        ties +=1
+      end
+    end
+    ties
+  end
 
 
 

@@ -57,7 +57,7 @@ class PublicArena < ActiveRecord::Base
   end
 
   def tie?
-    if self.challenger_video && self.challengee_video &&self.close?
+    if self.challenger_video && self.challengee_video && self.close?
       if self.challengee_video.votes.count == self.challenger_video.votes.count
         true
       else
