@@ -11,8 +11,9 @@ $(document).ready(function(){
         data: $(this).serialize(),
         success: function(response){
            var vote = $(response).find("#challenger_votes");
-
-           $("#challenger_votes").html(vote[0].innerText)
+           // may need to look into how 'return works' color might change and change right back
+            $(".up_arrow").attr("src", "arrow_up_colored.gif") 
+            $("#challenger_votes").html(vote[0].innerText)
         }
 
       })
@@ -30,6 +31,7 @@ $(document).ready(function(){
         data: $(this).serialize(),
         success: function(response){
            var vote = $(response).find("#challengee_votes");
+           $(".down_arrow").attr("src", "arrow_down_colored.gif")
            $("#challengee_votes").html(vote[0].innerText)
         }
 
