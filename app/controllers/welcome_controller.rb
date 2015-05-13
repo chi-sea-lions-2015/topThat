@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
    if current_user
      @user = current_user
    end
+   @public_arenas = PublicArena.all
    @video = Video.new
    @challenger_videos = PublicArena.all_challenger_videos
    render "index"

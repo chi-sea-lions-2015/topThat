@@ -7,17 +7,6 @@ video {
   position: relative;
   vertical-align: middle;
   display: table-cell;
-
-  .glyphicon-play {
-    position: absolute;
-    border-radius: 26px;
-    color: #ff5454;
-    font-size: 1.25em;
-    border: white;
-    top: 25px;
-    left: 65px;
-    z-index: 100;
-  }
 }
 
 .show-user {
