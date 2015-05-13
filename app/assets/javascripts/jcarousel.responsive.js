@@ -45,6 +45,5 @@
                     return '<a href="#' + page + '">' + page + '</a>';
                 }
             });
-            
     });
 })(jQuery);
