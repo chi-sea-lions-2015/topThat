@@ -50,7 +50,7 @@
     </table>
   </li>
 
-  <%@public_arenas.each do |arena|%>
+  <%@public_arenas.reverse.each do |arena|%>
   <% if arena.open? %>
   <li >
     <table id="index-video" class="table-responsive">
@@ -79,7 +79,7 @@
         </td>
       </tr>
       <tr>
-        <td><%= image_tag(arena.challenger_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
+        <td><%= image_tag(arena.challenger_video.user.avatar, width: "30", height: "30")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
         </td>
         <td>
         </td>
@@ -127,9 +127,9 @@
         <td><%= arena.challengee_video.title %></td>
       </tr>
       <tr>
-        <td><%= image_tag(arena.challenger_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
+        <td><%= image_tag(arena.challenger_video.user.avatar, width: "30", height: "30")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
         </td>
-        <td><%= image_tag(arena.challengee_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challengee_video.user.username, user_path(arena.challengee_video.user)%>
+        <td><%= image_tag(arena.challengee_video.user.avatar, width: "30", height: "30")%> <%= link_to arena.challengee_video.user.username, user_path(arena.challengee_video.user)%>
         </td>
       </tr>
          <tr>
@@ -195,9 +195,9 @@
       </tr>
 
       <tr>
-        <td ><%= image_tag(arena.challenger_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
+        <td ><%= image_tag(arena.challenger_video.user.avatar, width: "30", height: "30")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
         </td>
-        <td ><%= image_tag(arena.challengee_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challengee_video.user.username, user_path(arena.challengee_video.user)%>
+        <td ><%= image_tag(arena.challengee_video.user.avatar, width: "30", height: "30")%> <%= link_to arena.challengee_video.user.username, user_path(arena.challengee_video.user)%>
         </td>
       </tr>
 
