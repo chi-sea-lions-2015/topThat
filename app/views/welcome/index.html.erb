@@ -8,7 +8,7 @@
 
         <li >
           <table id="index-video" class="table-responsive">
-            <th id="index-status" >TopThat Categories
+            <th id="index-status">TopThat Categories
             </th>
             <tr>
               <td class="index-open" >
@@ -43,7 +43,7 @@
 
             <tr>
               <td  class="index-view-btn">
-                <button type="button" class = "btn btn-index index-open"><%= link_to 'About TopThat', "#" %></button>
+                <button type="button" class = "btn btn-index index-open"><%= link_to 'About TopThat', "/about" %></button>
               </td>
             </tr>
 
@@ -57,13 +57,17 @@
             <th id="index-status" class="index-open" colspan="2">AWAITING A CHALLENGER
             </th>
             <tr>
+              <td style="height:27px"></td>
+              <td></td>
+            </tr>
+            <tr>
               <td>
                 <video width="120" height="60">
                   <source src= <%=arena.challenger_video.data_content %> type="video/mp4"/>
                   </video>
                 </td>
                 <td>
-                  <div class="index-open-topthatlogo">
+                  <div class="index-open-topthatlogo text-center">
                     <%= image_tag("topthatlogo3", width: "60", height: "60") %>
                   </div>
                 </td>
@@ -84,12 +88,10 @@
                 <td>
                 </td>
               </tr>
-              <tr>
-                <td>
-                </td>
-                <td>
-                </td>
-              </tr>
+             <tr>
+              <td style="height:27px"></td>
+              <td></td>
+            </tr>
               <tr>
                 <td colspan="2" class="index-view-btn">
                   <button type="button" class = "btn btn-index index-open"><%= link_to 'Step into the Arena', edit_video_public_arena_path(arena.challenger_video, arena) %></button>
@@ -140,7 +142,7 @@
               </tr>
               <tr>
                 <td colspan="2" class="index-view-btn">
-                      <button type="button" class="btn btn-index index-in-battle"><%= link_to 'View Arena', video_public_arena_path(arena) %></button>
+                      <button type="button" class="btn btn-index index-in-battle"><%= link_to 'View Arena', video_public_arena_path(arena.challenger_video,arena) %></button>
                 </td>
               </tr>
 
@@ -151,7 +153,7 @@
               <% if arena.close? %>
         <li >
             <table id="index-video" class="table-responsive">
-              <th id="index-status" class="index-close" colspan="2">BATTLES OF YESTERYEAR
+              <th id="index-status" class="index-close" colspan="2">CLOSED
               </th>
               <tr>
                 <td class="index-winner" >

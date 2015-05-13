@@ -1,14 +1,20 @@
 <div class="row">
+    <div class="window-in-window">
+    <div class="wiw-group">
+      <ul class="list-group">
       <%= render 'status' %>
-  <div class="col-md-6 col-md-offset-4">
+      </ul>
+    </div>
+  </div>
 
-<%if @user %>
-  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></button>
-<%else%>
-  <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', login_path %></button>
-<%end%>
+            <p class="centered centered-text">or</p>
 
-
-
-</div>
+  <div class="text-center">
+              <%if @user %>
+              <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', new_user_video_path(@user, @video) %></button>
+              <%else%>
+              <button type="button" class = "btn btn-challenge"><%= link_to 'challenge the world', login_path %></button>
+              <%end%>
+  </div>
+   
 </div>

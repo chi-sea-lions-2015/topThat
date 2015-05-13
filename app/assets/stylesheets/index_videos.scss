@@ -26,18 +26,34 @@ table {
 }
 
 .index-open {
-  background-color: #FF9900;
+  background-color: #7FFF24;
   border: 1px solid #333333;
+  color: #333333;
+
+  a {
+  color: #333333;
+  }
 }
+
 
 .index-in-battle {
   background-color: #FF9900;
   border: 1px solid #333333;
+  color: #333333;
+
+  a {
+  color: #333333;
+  }
 }
 
 .index-close {
-  background-color: #FF9900;
+  background-color: #A40778;
   border: 1px solid #333333;
+  color: white;
+
+  a {
+  color: #white;
+  }
 }
 
 .index-winner {

@@ -21,7 +21,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("default_avatar.jpg")
   #
-    "default_avatar.jpg"
+    "topthat_default_avatar.jpg"
   end
 
   # Process files as they are uploaded:
