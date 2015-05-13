@@ -4,10 +4,10 @@
 
 <div class="jcarousel-wrapper">
   <div class="jcarousel" data-jcarousel="true">
-      <ul style="left: 0px; top: 0px;">
-      
-<li >
-<table id="index-video" class="table-responsive active">
+      <ul class="jcarousel-pagination" data-jcarouselcontrol="true" style="left: 0px; top: 0px;">
+
+<a href="#1" class="active"><li>
+<table id="index-video" class="table-responsive ">
       <th id="index-status" >TopThat Categories
       </th>
       <tr>
@@ -40,7 +40,7 @@
           <p>Review the battle!<br>View previous battles</p>
           </td>
       </tr>
-      
+
       <tr>
         <td  class="index-view-btn">
           <button type="button" class = "btn btn-index index-open"><%= link_to 'About TopThat', "#" %></button>
@@ -49,9 +49,13 @@
 
     </table>
   </li>
+</a>
 
   <%@public_arenas.each do |arena|%>
+  <% count = 1%>
   <% if arena.open? %>
+  <%count +=1 %>
+  <a href=<% "#" + "#{count}" %>>
   <li >
     <table id="index-video" class="table-responsive">
       <th id="index-status" class="index-open" colspan="2">AWAITING A CHALLENGER
