@@ -59,7 +59,11 @@ class User < ActiveRecord::Base
 
   def stats
     win_count  = self.videos.where(winner: true).count
-    ((win_count.to_f / self.closed_video_count.to_f) * 100.0).to_i
+    if self.closed_video_count > 0
+      ((win_count.to_f / self.closed_video_count.to_f) * 100.0).to_i
+    else
+      0
+    end
   end
 
   def ties
