@@ -1,0 +1,14 @@
+  
+from video.scss
+wrapper {
+  .glyphicon-play {
+    position: absolute;
+    border-radius: 26px;
+    color: #ff5454;
+    font-size: 1.25em;
+    border: white;
+    top: 25px;
+    left: 65px;
+    z-index: 100;
+  }
+  }

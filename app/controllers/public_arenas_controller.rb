@@ -38,7 +38,7 @@ class PublicArenasController < ApplicationController
     @public_arena.update_attributes(challengee_video: @challengee_video)
     AlertMailer.challenge_accepted_email(@public_arena).deliver_now
     AlertMailer.challenge_confirmation_email(@public_arena).deliver_now
-    PublicArenaWorker.perform_in(3.minutes, @public_arena.id)
+    PublicArenaWorker.perform_in(30.minutes, @public_arena.id)
     redirect_to video_public_arena_path(@public_arena.challenger_video, @public_arena)
   end
 
