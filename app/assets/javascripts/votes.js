@@ -15,10 +15,8 @@ $(document).ready(function(){
             $(".up_arrow").attr("src", "arrow_up_colored.gif") 
             $("#challenger_votes").html(vote[0].innerText)
         }
-
       })
    });
-
 
    $("#challengee_vote_link").click(function(e){
     e.preventDefault();
@@ -34,9 +32,6 @@ $(document).ready(function(){
            $(".down_arrow").attr("src", "arrow_down_colored.gif")
            $("#challengee_votes").html(vote[0].innerText)
         }
-
       })
    });
-
-
 });

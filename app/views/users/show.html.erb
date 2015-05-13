@@ -20,8 +20,10 @@
 <div>
 <h4> Stats: <h4>
   <p>wins: <%=current_user.videos.where(winner: true).count %></p>
-  <p>losses: <%= current_user.videos.count - current_user.videos.where(winner: true).count%></p>
-  <p>average: <%= (current_user.stats).ceil %>% </p>
+  <p>losses: <%= current_user.closed_video_count - current_user.videos.where(winner: true).count - current_user.ties %></p>
+  <p>ties: <%= current_user.ties%></p>
+  <p>average: <%= current_user.stats %>% </p>
+
 
 </div>
 
@@ -51,8 +53,8 @@
           <video width="160" height="80">
           <source src= <%=video.data_content %> type="video/mp4"/>
           </video>
-          <div class="glyphicon glyphicon-play">
-          </div>
+          <!-- <div class="glyphicon glyphicon-play">
+          </div> -->
         </div>
       </button>
       <%end%>
@@ -76,8 +78,8 @@
           <source src= <%=video.data_content %> type="video/mp4"/>
           </video>
 
-          <div class="glyphicon glyphicon-play">
-          </div>
+          <!-- <div class="glyphicon glyphicon-play">
+          </div> -->
         </div>
       </button>
       <%end%>
@@ -89,9 +91,9 @@
 
 
     <%else%>
-    <h2><%= current_user.username%></h2>
+    <h2><%= @user.username%></h2>
 <hr>
-<h3><%= current_user.username%>'s details</h3>
+<h3><%= @user.username%>'s details</h3>
 <br>
 <div class="user-info">
 <div class="row user-snippet" >
@@ -101,14 +103,24 @@
 <br>
 </div>
   <div class="col-md-6 ">
-<h4>About <%= current_user.username%>:</h4>
-<%=current_user.about_me%>
+<h4>About <%= @user.username%>:</h4>
+<%=@user.about_me%><br>
+
+<div>
+<h4> Stats: <h4>
+  <p>wins: <%=@user.videos.where(winner: true).count %></p>
+  <p>losses: <%= @user.closed_video_count - @user.videos.where(winner: true).count  - @user.ties%></p>
+  <p>ties: <%= @user.ties%></p>
+  <p>average: <%= @user.stats %>% </p>
+
+</div>
+
 </div>
 </div>
 </div>
 <br>
 <hr>
-<h3><%= current_user.username%>'s videos</h3>
+<h3><%= @user.username%>'s videos</h3>
 <h4>As Challenger:</h4>
 <div id="challenger_videos">
   <ul class="list-group">
@@ -124,8 +136,8 @@
           <video width="160" height="80">
           <source src= <%=video.data_content %> type="video/mp4"/>
           </video>
-          <div class="glyphicon glyphicon-play">
-          </div>
+          <!-- <div class="glyphicon glyphicon-play">
+          </div> -->
         </div>
       </button>
       <%end%>
@@ -149,8 +161,8 @@
           <video width="160" height="80">
           <source src= <%=video.data_content %> type="video/mp4"/>
           </video>
-          <div class="glyphicon glyphicon-play">
-          </div>
+         <!--  <div class="glyphicon glyphicon-play">
+          </div> -->
         </div>
       </button>
           <%end%>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/public_arenas/:status' => 'welcome#show'
   get '/welcome' => 'welcome#index'
-
+  get '/about' => 'about#index'
 
 
     resources :users do

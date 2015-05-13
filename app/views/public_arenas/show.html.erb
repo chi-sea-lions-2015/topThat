@@ -19,7 +19,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
 </video>
 </div>
 
-<%= image_tag(@user.avatar, width: "50") %> <%= link_to @user.username, user_path(@user)%><br>
+<%= image_tag(@challenger.avatar, width: "50", height: "50") %> <%= link_to @challenger.username, user_path(@challenger)%><br>
 
 <% if @public_arena.in_battle? %>
     <div id= 'challenger_votes'><%= @challenger_video.votes.count%></div>
@@ -29,7 +29,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
     <div id= 'challengee_votes'><%= @challengee_video.votes.count%></div>
 <%end%>
 
-<% if @public_arena.close? && @challengee_video %>
+<% if @public_arena.close? %>
   <div id= 'challenger_votes'><%= @challenger_video.votes.count%></div>
     <%= image_tag("arrow_up.gif", width: "50", :class => "up_arrow") %><br><br>
     <%= image_tag("arrow_down.gif", width: "50", :class =>"down_arrow") %><br>
@@ -46,7 +46,7 @@ Share this battle! <div class="addthis_sharing_toolbox"></div>
  Your browser does not support the video tag.
 </video>
 </div>
-<%= image_tag(@challengee_user.avatar, width: "50")%> <%= link_to @challengee_user.username, user_path(@user)%>
+<%= image_tag(@challengee_user.avatar, width: "50", height: "50")%> <%= link_to @challengee_user.username, user_path(@challengee_user)%>
 <%end%>
 
 <% if @public_arena.open? %>

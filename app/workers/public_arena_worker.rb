@@ -2,7 +2,7 @@ class PublicArenaWorker
   include Sidekiq::Worker
 
   def perform(arena_id)
-    # Rails.logger.warn Rails.env
+    Rails.logger.warn Rails.env
     arena = PublicArena.find(arena_id)
     if arena.challenger_won?
       user = arena.challenger_video.user
@@ -19,9 +19,9 @@ class PublicArenaWorker
       AlertMailer.tie_email(user_one, arena).deliver_now
       user_two = arena.challengee_video.user
       AlertMailer.tie_email(user_two, arena).deliver_now
-    else
-      user = arena.challenger_video.user
-      AlertMailer.no_challengee_email(user, arena).deliver_now
+    # else
+    #   user = arena.challenger_video.user
+    #   AlertMailer.no_challengee_email(user, arena).deliver_now
     end
   end
 
