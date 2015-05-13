@@ -20,7 +20,8 @@
 <div>
 <h4> Stats: <h4>
   <p>wins: <%=current_user.videos.where(winner: true).count %></p>
-  <p>losses: <%= current_user.videos.count - current_user.videos.where(winner: true).count%></p>
+  <p>losses: <%= current_user.closed_video_count - current_user.videos.where(winner: true).count - current_user.ties %></p>
+  <p>ties: <%= current_user.ties%></p>
   <p>average: <%= current_user.stats %>% </p>
 
 </div>
@@ -107,7 +108,8 @@
 <div>
 <h4> Stats: <h4>
   <p>wins: <%=@user.videos.where(winner: true).count %></p>
-  <p>losses: <%= @user.videos.count - @user.videos.where(winner: true).count%></p>
+  <p>losses: <%= @user.closed_video_count - @user.videos.where(winner: true).count  - @user.ties%></p>
+  <p>ties: <%= @user.ties%></p>
   <p>average: <%= @user.stats %>% </p>
 
 </div>
