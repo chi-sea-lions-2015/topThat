@@ -4,6 +4,172 @@
 <hr>
 
 
+
+  <%@public_arenas.each do |arena|%>
+  <% if arena.open? %>
+  <div id="index-view">
+    <table id="index-video">
+      <th id="index-status" class="index-open" colspan="2">OPEN
+      </th>
+      <tr>
+        <td>
+          <video width="160" height="80">
+          <source src= <%=arena.challenger_video.data_content %> type="video/mp4"/>
+          </video>
+        </td>
+        <td>
+          <div class="index-open-topthatlogo">
+          <%= image_tag("topthatlogo3", width: "80", height: "80") %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><%= arena.challenger_video.title %></td>
+        <td class="centered"><i>Can you top that?</i>
+        </td>
+      </tr>
+      <tr>
+        <td><%= image_tag(arena.challenger_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
+        </td>
+        <td>
+        </td>
+      </tr>
+         <tr>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="index-view-btn">
+          <button type="button" class = "btn btn-index index-open"><%= link_to 'Step into the Arena', edit_video_public_arena_path(arena.challenger_video, arena) %></button>
+        </td>
+      </tr>
+
+    </table>
+</div>
+<% end %>
+
+  <% if arena.in_battle? %>
+  <div id="index-view">
+    <table id="index-video">
+      <th id="index-status" class="index-in-battle" colspan="2">IN BATTLE
+      </th>
+      <tr>
+        <td>
+          <video width="160" height="80">
+          <source src= <%=arena.challenger_video.data_content %> type="video/mp4"/>
+          </video>
+        </td>
+        <td>
+          <video width="160" height="80">
+          <source src= <%=arena.challengee_video.data_content %> type="video/mp4"/>
+          </video>
+        </td>
+      </tr>
+      <tr>
+        <td><%= arena.challenger_video.title %></td>
+        <td><%= arena.challengee_video.title %></td>
+      </tr>
+      <tr>
+        <td><%= image_tag(arena.challenger_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
+        </td>
+        <td><%= image_tag(arena.challengee_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challengee_video.user.username, user_path(arena.challengee_video.user)%>
+        </td>
+      </tr>
+         <tr>
+        <td>Votes: <%= arena.challenger_video.votes.count%>
+        </td>
+        <td>Votes: <%= arena.challengee_video.votes.count%>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="index-view-btn">
+          <button type="button" class="btn btn-index index-in-battle"><%= link_to 'View Arena', video_public_arena_path(arena) %></button>
+        </td>
+      </tr>
+
+    </table>
+</div>
+<% end %>
+
+  <% if arena.close? %>
+  <div id="index-view">
+    <table id="index-video">
+      <th id="index-status" class="index-close" colspan="3">BATTLES OF YESTERYEAR
+      </th>
+      <tr>
+        <td class="index-winner" colspan="1.5">
+          <% if arena.challengee_video.winner %> TopThat Winner!
+          <% elsif arena.tie? %><i>Tied</i>
+          <% end %>
+        </td>
+         <td>
+        </td>
+        <td class="index-winner" colspan="1.5">
+          <% if arena.challenger_video.winner %> TopThat Winner!
+          <% elsif arena.tie? %><i>Tied</i>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%= arena.challenger_video.data_content %> type="video/mp4"/>
+          </video>
+        </div>
+        </td>
+        <td>
+          <div class="versus">
+            VS
+          </div>
+        </td>
+        <td>
+          <div class="wrapper">
+          <video width="160" height="80">
+          <source src= <%= arena.challengee_video.data_content %> type="video/mp4"/>
+          </video>
+        </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="1.5"><%= arena.challenger_video.title %></td>
+         <td>
+        </td>
+        <td colspan="1.5"><%= arena.challengee_video.title %></td>
+      </tr>
+      <tr>
+        <td colspan="1.5"><%= image_tag(arena.challenger_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challenger_video.user.username, user_path(arena.challenger_video.user)%>
+        </td>
+         <td>
+        </td>
+        <td colspan="1.5"><%= image_tag(arena.challengee_video.user.avatar, width: "50", height: "50")%> <%= link_to arena.challengee_video.user.username, user_path(arena.challengee_video.user)%>
+        </td>
+      </tr>
+         <tr>
+        <td colspan="1.5">Votes: <%= arena.challenger_video.votes.count%>
+        </td>
+         <td>
+        </td>
+        <td colspan="1.5">Votes: <%= arena.challengee_video.votes.count%>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="index-view-btn">
+          <button type="button" class = "btn btn-index index-close"><%= link_to 'View Arena', video_public_arena_path(arena.challenger_video,arena.challenger_video.public_arena_as_challenger) %></button>
+        </td>
+      </tr>
+
+    </table>
+</div>
+<% end %>
+
+<% end %>
+
+
 <div id="challenger_videos">
   <ul class="list-group">
     <li class="list-group-item">
@@ -17,14 +183,16 @@
           <video width="160" height="80">
           <source src= <%=challenger_video.data_content %> type="video/mp4"/>
           </video>
-          <div class="glyphicon glyphicon-play">
-          </div>
+<!--           <div class="glyphicon glyphicon-play">
+          </div> -->
         </div>
       </button>
       <%end%>
     </li>
   </ul>
 </div>
+
+<p class="centered centered-text">or</p>
 
 <div class="col-md-6 col-md-offset-4">
 <%if @user %>
