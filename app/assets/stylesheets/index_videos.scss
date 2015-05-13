@@ -73,3 +73,27 @@ table {
   border-radius: 25px;
   border: 1px solid transparent;
 }
+
+.wiw-group ul{
+    position: relative;
+    list-style: none;
+    width: 20000em;
+}
+
+li {
+
+  float: left;
+}
+
+.wiw-group {
+    position: relative;
+    
+    width: 100%;
+}
+
+.window-in-window {
+  border: 5px solid #333333;
+
+  overflow: scroll;
+ 
+}
