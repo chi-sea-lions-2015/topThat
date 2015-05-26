@@ -1,8 +1,9 @@
 $(document).ready(function(){
+  console.log("what?")
 
   $("#signup_link").on("click", function(e){
       e.preventDefault();
-
+      console.log("poop")
 
     $.ajax({
       url: $(this).attr("href"),
