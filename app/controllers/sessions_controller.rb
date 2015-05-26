@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
 
 
 
-  def index 
-  end 
+  def index
+  end
 
 
   def new
@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to welcome_path
     else
-      flash.now[:danger] = "Invalid email/password combination"
-      render "index"
+      flash[:danger] = "Invalid email/password combination"
+      redirect_to root_path
     end
   end
 
