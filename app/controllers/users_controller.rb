@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def create
     puts params
-    if user_params[:password] == params[:password_confirmation]
+    if user_params[:password] == params[:user][:password_confirmation]
     
     @user = User.new(user_params)
     respond_to do |format|
