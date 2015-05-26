@@ -35,6 +35,7 @@ gem 'carrierwave'
 gem "fog"
 gem "figaro"
 gem 'mini_magick'
+gem 'jquery-turbolinks'
 
 gem 'sidekiq'
 gem 'sinatra', require: false
