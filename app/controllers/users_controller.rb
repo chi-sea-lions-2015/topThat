@@ -13,8 +13,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts params
+    if user_params[:password] == params[:password_confirmation]
+    
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         log_in @user
@@ -27,8 +29,12 @@ class UsersController < ApplicationController
         flash[:error] = "oops. Turns out you don't know how to signup for anything."
         format.html { redirect_to(root_url)}
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    else 
+        flash[:error] = "oops. Turns out you don't know how to signup for anything."
+        redirect_to root_path
+    end 
   end
 
 
