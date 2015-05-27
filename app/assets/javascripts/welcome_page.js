@@ -18,12 +18,12 @@ $(document).ready(function(){
 
 
 
-  $("#login_link").on("click", function(e){
+  $("#login_button").on("click", function(e){
       e.preventDefault();
 
       $.ajax({
-        url: $(this).attr("href"),
-        method: $(this).attr("method"),
+        url: $("#login_link").attr("href"),
+        method: $("#login_link").attr("method"),
         success: function(response){
           var login_form = $(response).find("#login_form");
             $("#opening_forms").html(login_form[0])
