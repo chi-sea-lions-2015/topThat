@@ -2,7 +2,6 @@ $(document).ready(function(){
 
   $("#challenger_vote_link").click(function(e){
     e.preventDefault();
-    // what the shit is stop propagation?
     e.stopPropagation();
       console.log($(this).attr('href'))
       $.ajax({
