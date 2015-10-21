@@ -3,7 +3,7 @@ $(document).ready(function(){
 
   $("#signup_button").on("click", function(e){
       e.preventDefault();
-      console.log("poop")
+      console.log("ding")
 
     $.ajax({
       url: $("#signup_link").attr("href"),
