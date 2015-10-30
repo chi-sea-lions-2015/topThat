@@ -20,7 +20,7 @@ $(document).ready(function(){
 
    $("#challengee_vote_link").click(function(e){
     e.preventDefault();
-    // what the shit is stop propagation?
+    //stop propagation?
     e.stopPropagation();
       console.log($(this).attr('href'))
       $.ajax({
